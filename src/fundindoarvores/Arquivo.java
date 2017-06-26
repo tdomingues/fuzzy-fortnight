@@ -17,7 +17,7 @@ public class Arquivo {
     
     private int count = 0;
     public void leSimulacao() {
-        try (BufferedReader buff = new BufferedReader(new FileReader("Exemplo1.txt"))) {
+        try (BufferedReader buff = new BufferedReader(new FileReader("F_41.txt"))) {
             //Carrega os dados da arvore Canhota que consta no arquivo
             String linha = null;
             linha = buff.readLine();
@@ -68,14 +68,16 @@ public class Arquivo {
             for (int i = 1; i <= arvoreEsquerda; i++) {
                 count+=5;
                 if (visE[i] == 0) {
-                    count+=19;
+                    count+=9;
                     int ccomprimentoCanhota = 0;
                     int cur = i;
                     visE[cur] = 1;
                     while (centraltE[cur] != 0) {
+                        
                         cur = centraltE[cur];
                         ccomprimentoCanhota++;
                         visE[cur] = 1;
+                        count+=9;
                     }
                     comprimentoCanhota = Math.max(comprimentoCanhota, ccomprimentoCanhota);
                     if (i == 1) {
@@ -92,11 +94,12 @@ public class Arquivo {
             for (int i = 1; i <= arvoreDestra; i++) {
                 count+=4;
                 if (visD[i] == 0) {
-                    count+=19;
+                    count+=9;
                     int ccomprimentoDestra = 0;
                     int cur = i;
                     visD[cur] = 1;
                     while (centraltD[cur] != 0) {
+                        count+=9;
                         cur = centraltD[cur];
                         ccomprimentoDestra++;
                         visD[cur] = 1;
